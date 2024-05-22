@@ -35,6 +35,12 @@ func testList() {
 				"kind": "CiliumNetworkPolicy",
 				"namespace": "default",
 				"name": "l3-egress"
+			},
+			{
+				"direction": "EGRESS",
+				"kind": "CiliumNetworkPolicy",
+				"namespace": "default",
+				"name": "l4-egress"
 			}]`,
 		},
 		{

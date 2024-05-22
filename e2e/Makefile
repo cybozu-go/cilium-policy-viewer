@@ -51,8 +51,17 @@ install-test-pod:
 	$(MAKE) --no-print-directory run-test-pod-l3-ingress-explicit-deny
 	$(MAKE) --no-print-directory run-test-pod-l3-egress-implicit-deny
 	$(MAKE) --no-print-directory run-test-pod-l3-egress-explicit-deny
+
+	$(MAKE) --no-print-directory run-test-pod-l4-ingress-explicit-allow
+	$(MAKE) --no-print-directory run-test-pod-l4-ingress-explicit-allow-tcp
+	$(MAKE) --no-print-directory run-test-pod-l4-ingress-explicit-deny
+	$(MAKE) --no-print-directory run-test-pod-l4-ingress-explicit-deny-udp
+	$(MAKE) --no-print-directory run-test-pod-l4-egress-implicit-deny
+	$(MAKE) --no-print-directory run-test-pod-l4-egress-explicit-deny
 	$(MAKE) --no-print-directory wait-for-workloads
+
 	$(KUBECTL) apply -f testdata/policy/l3.yaml
+	$(KUBECTL) apply -f testdata/policy/l4.yaml
 
 .PHONY: install-cilium-policy
 install-cilium-policy:
